@@ -1,9 +1,13 @@
 import "./styles.css";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>todo-firebase</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

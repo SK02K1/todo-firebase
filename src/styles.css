@@ -2,3 +2,13 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.hero-banner {
+  width: 50%;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-banner {
+    width: 20%;
+  }
+}
