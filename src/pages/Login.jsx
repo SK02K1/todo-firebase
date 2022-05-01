@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { useAuth } from "../contexts";
 
 export const Login = () => {
+  const { setUser } = useAuth();
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: ""
   });
 
   const { email, password } = loginFormData;
+  const navigate = useNavigate();
 
   const inputChangeHandler = (e) =>
     setLoginFormData((prevFormData) => ({
@@ -15,10 +20,23 @@ export const Login = () => {
       [e.target.name]: e.target.value
     }));
 
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      if (res?.user) {
+        setUser(res.user);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <div>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={loginHandler}>
         <div className="field-container">
           <label htmlFor="email">Email: </label>
           <input
