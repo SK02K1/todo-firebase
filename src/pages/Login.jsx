@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import toast from "react-hot-toast";
 import { auth } from "../firebase";
 import { useAuth } from "../contexts";
 
@@ -26,6 +27,7 @@ export const Login = () => {
       const res = await signInWithEmailAndPassword(auth, email, password);
       if (res?.user) {
         setUser(res.user);
+        toast.success("Successfully Logged In");
         navigate("/");
       }
     } catch (error) {
