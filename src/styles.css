@@ -3,8 +3,22 @@
   text-align: center;
 }
 
+label,
+input {
+  padding: 0.5rem 0.8rem;
+}
+
 .hero-banner {
   width: 50%;
+}
+
+.field-container {
+  margin: 0.5rem;
+}
+
+.btn {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {
