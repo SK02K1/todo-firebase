@@ -21,6 +21,14 @@ input {
   cursor: pointer;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ccc;
+  padding: 0.5rem 1rem;
+}
+
 @media screen and (min-width: 1024px) {
   .hero-banner {
     width: 20%;

@@ -31,7 +31,7 @@ export const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      console.error(error.message);
+      toast.error(error.message);
     }
   };
 

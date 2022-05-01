@@ -5,7 +5,6 @@ export const Home = () => {
   return (
     <div>
       <header className="hero">
-        <h1>todo-firebase</h1>
         <p>Hellew {user?.email ?? "anonymous"}</p>
         <img
           className="hero-banner"
