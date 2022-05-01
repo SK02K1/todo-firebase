@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider
+} from "firebase/auth";
 import toast from "react-hot-toast";
 import { auth } from "../firebase";
 import { useAuth } from "../contexts";
@@ -14,6 +18,7 @@ export const Login = () => {
 
   const { email, password } = loginFormData;
   const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
 
   const inputChangeHandler = (e) =>
     setLoginFormData((prevFormData) => ({
@@ -25,6 +30,19 @@ export const Login = () => {
     e.preventDefault();
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
+      if (res?.user) {
+        setUser(res.user);
+        toast.success("Successfully Logged In");
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  const handleLoginWithGoogle = async () => {
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
       if (res?.user) {
         setUser(res.user);
         toast.success("Successfully Logged In");
@@ -69,7 +87,9 @@ export const Login = () => {
         </button>
       </form>
       <p>OR</p>
-      <button className="btn">Sign-in using google</button>
+      <button onClick={handleLoginWithGoogle} className="btn">
+        Sign-in using google
+      </button>
     </div>
   );
 };
