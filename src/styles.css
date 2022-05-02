@@ -8,6 +8,10 @@ input {
   padding: 0.5rem 0.8rem;
 }
 
+label {
+  display: block;
+}
+
 .hero-banner {
   width: 50%;
 }
@@ -27,6 +31,10 @@ input {
   align-items: center;
   background-color: #ccc;
   padding: 0.5rem 1rem;
+}
+
+.text-highlight {
+  color: palevioletred;
 }
 
 @media screen and (min-width: 1024px) {

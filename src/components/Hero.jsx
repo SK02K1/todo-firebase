@@ -5,7 +5,9 @@ export const Hero = () => {
 
   return (
     <header className="hero">
-      <p>Hellew {user?.email ?? "anonymous"}</p>
+      <p>
+        Hellew <span className="text-highlight">{user.displayName}</span>
+      </p>
       <div>
         <img
           className="hero-banner"
