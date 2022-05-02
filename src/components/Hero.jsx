@@ -5,9 +5,9 @@ export const Hero = () => {
 
   return (
     <header className="hero">
-      <p>
+      <h3>
         Hellew <span className="text-highlight">{user.displayName}</span>
-      </p>
+      </h3>
       <div>
         <img
           className="hero-banner"

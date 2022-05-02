@@ -37,8 +37,27 @@ label {
   color: palevioletred;
 }
 
+.todo-card {
+  background-color: #ccc;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+.task-completed-true {
+  text-decoration: line-through;
+}
+
+.task-completed-false {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1024px) {
   .hero-banner {
     width: 20%;
+  }
+
+  .todo-card {
+    width: 30%;
   }
 }
